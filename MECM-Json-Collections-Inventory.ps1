@@ -16,7 +16,8 @@ The path to the JSON file to create or overwrite.
 .EXAMPLE
 powershell.exe -ExecutionPolicy bypass -file "MECM-Json-Collections-Inventory.ps1" -SiteCode "AAA" -ServerName "myserver.aaa.local" -JsonPath "C:\users\%USERNAME%\documents\export.json"
 
-.AUTHOR Camille POIROT
+.AUTHOR 
+Camille POIROT
 https://www.linkedin.com/in/camille-poirot-85919621b/
 #>
 
