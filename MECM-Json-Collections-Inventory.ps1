@@ -1,4 +1,4 @@
-﻿<#
+<#
 .SYNOPSIS
 This script retrieves information about MECM (Microsoft Endpoint Configuration Manager) collections and saves it in a JSON file. 
 The collections are sorted by folders and each folder contains information about the collections it contains. 
@@ -16,9 +16,12 @@ The path to the JSON file to create or overwrite.
 .EXAMPLE
 powershell.exe -ExecutionPolicy bypass -file "MECM-Json-Collections-Inventory.ps1" -SiteCode "AAA" -ServerName "myserver.aaa.local" -JsonPath "C:\users\%USERNAME%\documents\export.json"
 
-.AUTHOR 
+.AUTHOR
 Camille POIROT
 https://www.linkedin.com/in/camille-poirot-85919621b/
+
+.DATE
+03/2023
 #>
 
 
@@ -55,8 +58,10 @@ try {
         Set-Location "$($SiteCode):\" @initParams
 
 
-} catch { exit.code(1) }
-
+} catch { exit }} catch { 
+    Write-Host "An error occurred: $($_.Exception.Message)"
+    exit 
+}
 
 [string]$Namespace = "root/SMS/site_$SiteCode"
 
